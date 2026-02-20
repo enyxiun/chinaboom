@@ -38,7 +38,7 @@ local bones = {
     {"RightUpperLeg", "RightLowerLeg"},
 }
 
-local flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
+getgenv().flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
     ["Enabled"] = true;
     ["Names"] = true; 
     ["Name_Color"] = { Color = rgb(0, 255, 255) };
@@ -101,7 +101,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
 
     -- Functions 
         function esp:is_teammate(player)
-            if not flags["TeamCheck"] then
+            if not getgenv().flags["TeamCheck"] then
                 return false
             end
             
@@ -182,14 +182,14 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                 });
                 
                 objects[ "box_outline" ] = esp:create( "UIStroke" , {
-                    Parent = (flags["Boxes"] and flags["Box_Type"] ~= "Corner" and objects["holder"]) or esp.cache;
+                    Parent = (getgenv().flags["Boxes"] and getgenv().flags["Box_Type"] ~= "Corner" and objects["holder"]) or esp.cache;
                     LineJoinMode = Enum.LineJoinMode.Miter
                 });
                 
                 objects[ "name" ] = esp:create( "TextLabel" , {
                     FontFace = fonts.main;
                     Parent = objects[ "holder" ];
-                    TextColor3 = flags["Name_Color"].Color;
+                    TextColor3 = getgenv().flags["Name_Color"].Color;
                     BorderColor3 = rgb(0, 0, 0);
                     Text = string.format("%s (@%s)", player.DisplayName, player.Name);
                     Name = "\0";
@@ -204,7 +204,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                 });
                 
                 objects[ "box_handler" ] = esp:create( "Frame" , {
-                    Parent = (flags["Boxes"] and flags["Box_Type"] ~= "Corner" and objects["holder"]) or esp.cache;
+                    Parent = (getgenv().flags["Boxes"] and getgenv().flags["Box_Type"] ~= "Corner" and objects["holder"]) or esp.cache;
                     Name = "\0";
                     BackgroundTransparency = 1;
                     Position = dim2(0, 1, 0, 1);
@@ -241,7 +241,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                     objects[ "corners" ] = esp:create( "Frame" , {
                         Visible = true;
                         BorderColor3 = rgb(0, 0, 0);
-                        Parent = flags["Boxes"] and flags["Box_Type"] == "Corner" and objects["holder"] or esp.cache;
+                        Parent = getgenv().flags["Boxes"] and getgenv().flags["Box_Type"] == "Corner" and objects["holder"] or esp.cache;
                         BackgroundTransparency = 1;
                         Position = dim2(0, -1, 0, 2);
                         Name = "\0";
@@ -266,7 +266,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, -2);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "2" ] = esp:create( "Frame" , {
@@ -285,7 +285,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, 1);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "3" ] = esp:create( "Frame" , {
@@ -305,7 +305,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, -2);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "4" ] = esp:create( "Frame" , {
@@ -325,7 +325,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, 1);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "5" ] = esp:create( "Frame" , {
@@ -345,7 +345,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, -2);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "6" ] = esp:create( "Frame" , {
@@ -366,7 +366,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, 1);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "7" ] = esp:create( "Frame" , {
@@ -386,7 +386,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, -2);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                     
                     objects[ "7" ] = esp:create( "Frame" , {
@@ -407,14 +407,14 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -2, 1, 1);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = flags["Box_Color"].Color
+                        BackgroundColor3 = getgenv().flags["Box_Color"].Color
                     });
                 -- 
                 
                 -- Healthbar
                     objects[ "healthbar_holder" ] = esp:create( "Frame" , {
                         AnchorPoint = vec2(1, 0);
-                        Parent = flags["Healthbar"] and objects[ "holder" ] or esp.cache;
+                        Parent = getgenv().flags["Healthbar"] and objects[ "holder" ] or esp.cache;
                         Name = "\0";
                         Position = dim2(0, -5, 0, -1);
                         BorderColor3 = rgb(0, 0, 0);
@@ -437,10 +437,10 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                 -- Distance esp
                     objects[ "distance" ] = esp:create( "TextLabel" , {
                         FontFace = fonts.main;
-                        TextColor3 = flags["Distance_Color"].Color;
+                        TextColor3 = getgenv().flags["Distance_Color"].Color;
                         BorderColor3 = rgb(0, 0, 0);
                         Text = "127st";
-                        Parent = flags[ "Distance" ] and objects[ "holder" ] or esp.cache;
+                        Parent = getgenv().flags[ "Distance" ] and objects[ "holder" ] or esp.cache;
                         TextStrokeTransparency = 0;
                         Name = "\0";
                         Size = dim2(1, 0, 0, 0);
@@ -455,7 +455,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                 -- Weapon esp
                     objects[ "weapon" ] = esp:create( "TextLabel" , {
                         FontFace = fonts.main;
-                        TextColor3 = flags["Weapon_Color"].Color;
+                        TextColor3 = getgenv().flags["Weapon_Color"].Color;
                         BorderColor3 = rgb(0, 0, 0);
                         Text = "[ak-47]";
                         Parent = esp.cache;
@@ -474,7 +474,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                     
                     for _, bone in bones do
                         local line = Drawing.new("Line")
-                        line.Color = flags["Skeletons_Color"].Color;
+                        line.Color = getgenv().flags["Skeletons_Color"].Color;
                         line.Thickness = 1;
                         line.Visible = false;
 
@@ -485,7 +485,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
             
             do --[[ data functions ]]
                 data.health_changed = function( value )
-                    if not flags[ "Healthbar" ] then 
+                    if not getgenv().flags[ "Healthbar" ] then 
                         return 
                     end
 
@@ -493,7 +493,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                     local humanoid = data.info.humanoid
                     
                     local multiplier = value / humanoid.MaxHealth
-                    local color = flags[ "Health_Low" ].Color:Lerp( flags["Health_High"].Color, multiplier )
+                    local color = getgenv().flags[ "Health_Low" ].Color:Lerp( getgenv().flags["Health_High"].Color, multiplier )
                     
                     objects[ "healthbar" ].Size = UDim2.new(1, -2, multiplier, -2)
                     objects[ "healthbar" ].Position = UDim2.new(0, 1, 1 - multiplier, 1)
@@ -591,14 +591,14 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                     continue 
                 end
                 print("3")
-                objects.holder.Parent = flags["Enabled"] and esp.screengui or esp.cache
+                objects.holder.Parent = getgenv().flags["Enabled"] and esp.screengui or esp.cache
 
-                objects[ "name" ].Parent = flags["Names"] and objects["holder"] or esp.cache
-                objects[ "name" ].TextColor3 = flags["Name_Color"].Color
+                objects[ "name" ].Parent = getgenv().flags["Names"] and objects["holder"] or esp.cache
+                objects[ "name" ].TextColor3 = getgenv().flags["Name_Color"].Color
                 
-                local is_corner = flags[ "Box_Type" ] == "Corner"
+                local is_corner = getgenv().flags[ "Box_Type" ] == "Corner"
 
-                if flags["Boxes"] then 
+                if getgenv().flags["Boxes"] then 
                     objects[ "corners" ].Parent = (is_corner and objects["holder"]) or esp.cache
                     objects[ "box_handler" ].Parent = (is_corner and esp.cache or objects[ "holder" ])
                     objects[ "box_outline" ].Parent = (is_corner and esp.cache or objects[ "holder" ]) 
@@ -608,30 +608,30 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                     objects[ "box_outline" ].Parent = esp.cache
                 end 
                 print("4")
-                objects[ "box_color" ].Color = flags["Box_Color"].Color 
+                objects[ "box_color" ].Color = getgenv().flags["Box_Color"].Color 
 
                 for _, corner in objects[ "corners" ]:GetChildren() do
-                    corner.Frame.BackgroundColor3 = flags["Box_Color"].Color
+                    corner.Frame.BackgroundColor3 = getgenv().flags["Box_Color"].Color
                 end
                 print("5")
 
                 for _, line in path.drawings do
-                    line.Color = flags["Skeletons_Color"].Color
-                    line.Visible = flags["Skeletons"]
+                    line.Color = getgenv().flags["Skeletons_Color"].Color
+                    line.Visible = getgenv().flags["Skeletons"]
                 end
 
-                objects[ "healthbar_holder" ].Parent = flags[ "Healthbar" ] and objects[ "holder" ] or esp.cache
+                objects[ "healthbar_holder" ].Parent = getgenv().flags[ "Healthbar" ] and objects[ "holder" ] or esp.cache
                 print("6")
-                objects[ "weapon" ].TextColor3 = flags["Weapon_Color"].Color
-                objects[ "weapon" ].Parent = flags["Weapon"] and v.Character:FindFirstChildOfClass("Tool") and objects[ "holder" ] or esp.cache
+                objects[ "weapon" ].TextColor3 = getgenv().flags["Weapon_Color"].Color
+                objects[ "weapon" ].Parent = getgenv().flags["Weapon"] and v.Character:FindFirstChildOfClass("Tool") and objects[ "holder" ] or esp.cache
 
-                objects[ "distance" ].TextColor3 = flags["Distance_Color"].Color
-                objects[ "distance" ].Parent = flags["Distance"] and objects[ "holder" ] or esp.cache
+                objects[ "distance" ].TextColor3 = getgenv().flags["Distance_Color"].Color
+                objects[ "distance" ].Parent = getgenv().flags["Distance"] and objects[ "holder" ] or esp.cache
             end
         end
 
         esp.connection = run.RenderStepped:Connect(function()
-            if not flags["Enabled"] then 
+            if not getgenv().flags["Enabled"] then 
                 return
             end
 
@@ -667,7 +667,7 @@ local esp = { players = {}, screengui = Instance.new("ScreenGui", gethui()), cac
                 end 
 
                 -- Skeletons 
-                    if flags["Skeletons"] and character:FindFirstChild("UpperTorso") then 
+                    if getgenv().flags["Skeletons"] and character:FindFirstChild("UpperTorso") then 
                         for i = 1, #bones do
                             local origin, destination = bones[i][1], bones[i][2]
 
@@ -749,7 +749,7 @@ esp.player_removed = players.PlayerRemoving:Connect(function(v)
     esp:remove_object(v)
 end)
 
-flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
+getgenv().flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
     ["Enabled"] = true;
     ["Names"] = true; 
     ["Name_Color"] = { Color = rgb(255, 255, 255) };
