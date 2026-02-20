@@ -39,18 +39,18 @@ local bones = {
 }
 
 local flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
-    ["Enabled"] = true;
-    ["Names"] = true; 
+    ["Enabled"] = false;
+    ["Names"] = false; 
     ["Name_Color"] = { Color = rgb(0, 255, 255) };
-    ["Boxes"] = true;
+    ["Boxes"] = false;
     ["Box_Type"] = "Corner";
     ["Box_Color"] = { Color = rgb(0, 255, 0) };
-    ["Healthbar"] = true; 
+    ["Healthbar"] = false; 
     ["Health_High"] = { Color = rgb(0, 255, 0) };
     ["Health_Low"] = { Color = rgb(255, 0, 0) };
-    ["Distance"] = true;
-    ["Weapon"] = true;
-    ["Skeletons"] = true;
+    ["Distance"] = false;
+    ["Weapon"] = false;
+    ["Skeletons"] = false;
     ["Skeletons_Color"] = { Color = rgb(16, 0, 247) };
     ["Distance_Color"] = { Color = rgb(0, 255, 0) };
     ["Weapon_Color"] = { Color = rgb(0, 255, 255) }
@@ -731,18 +731,18 @@ esp.player_removed = players.PlayerRemoving:Connect(function(v)
 end)
 
 flags = { -- basically a substitute for ur ui flags (flags["wahdiuawdhwa"])
-    ["Enabled"] = true;
-    ["Names"] = true; 
+    ["Enabled"] = false;
+    ["Names"] = false; 
     ["Name_Color"] = { Color = rgb(255, 255, 255) };
-    ["Boxes"] = true;
+    ["Boxes"] = false;
     ["Box_Type"] = "Normal";
     ["Box_Color"] = { Color = rgb(255, 255, 255) };
-    ["Healthbar"] = true; 
+    ["Healthbar"] = false; 
     ["Health_High"] = { Color = rgb(0, 255, 0) };
     ["Health_Low"] = { Color = rgb(255, 0, 0) };
-    ["Distance"] = true;
-    ["Weapon"] = true;
-    ["Skeletons"] = true;
+    ["Distance"] = false;
+    ["Weapon"] = false;
+    ["Skeletons"] = false;
     ["Skeletons_Color"] = { Color = rgb(255, 255, 255) };
     ["Distance_Color"] = { Color = rgb(255, 255, 255) };
     ["Weapon_Color"] = { Color = rgb(255, 255, 255) }
