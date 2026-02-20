@@ -33,6 +33,7 @@ getgenv().ESP = {
         VisibleCheck = false,
         ForceField = false,
         AliveCheck = false,
+        TeamCheck = false, --// NEW: Team check option
     },
     Extra = {
         UseDisplayName = false,
@@ -399,6 +400,21 @@ do --// Functions
     function Atlanta:GetPlayerParent(Player)
         return Player.Parent
     end
+    --
+    --// NEW: Team check function
+    function Atlanta:IsTeammate(Player)
+        if not ESP.Checks.TeamCheck then
+            return false -- If team check is disabled, no one is a teammate (show everyone)
+        end
+        
+        -- Check if both players have teams
+        if not Client.Team or not Player.Team then
+            return false -- If either player has no team, they're not teammates
+        end
+        
+        -- Check if they're on the same team
+        return Client.Team == Player.Team
+    end
 end
 --
 do -- // Visuals
@@ -571,6 +587,12 @@ do -- // Visuals
             --
             if (Player and Player ~= Client and Parent and Parent ~= nil) or (Info.RootPartCFrame and Info.Health and Info.MaxHealth) then
                 if ESP.Main.Enabled then
+                    --// NEW: Check if player is a teammate and skip if team check is enabled
+                    if Atlanta:IsTeammate(Player) then
+                        Info.Pass = false
+                        return Self:Opacity(false)
+                    end
+                    
                     local Object, Humanoid, RootPart = Atlanta:ValidateClient(Player)
                     local BodyParts = (RootPart and Atlanta:GetBodyParts(Object, RootPart, true))
                     local TransparencyMultplier = 1
